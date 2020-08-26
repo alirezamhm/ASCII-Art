@@ -6,7 +6,7 @@ parser.add_argument('name', metavar="Image name", type=str, help="Image name")
 name = parser.parse_args().name
 
 im = Image.open(name)
-im.thumbnail((600, 600), Image.ANTIALIAS)
+im.thumbnail((200, 200), Image.ANTIALIAS)
 
 width, heigth = im.size
 data = list(im.getdata())
@@ -25,7 +25,8 @@ for row in range(len(pixels)):
 def print_image(pixels: list):
     for row in range(len(pixels)):
         for col in range(len(pixels[row])):
-            print(pixels[row][col], end='')
+            for _ in range(2):
+                print(pixels[row][col], end='')
         print()
     print()
 
