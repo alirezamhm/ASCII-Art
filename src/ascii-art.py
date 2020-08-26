@@ -1,6 +1,12 @@
 from PIL import Image
-im = Image.open('sample.jpg')
-im.thumbnail((500, 500), Image.ANTIALIAS)
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('name', metavar="Image name", type=str, help="Image name")
+name = parser.parse_args().name
+
+im = Image.open(name)
+im.thumbnail((600, 600), Image.ANTIALIAS)
 
 width, heigth = im.size
 data = list(im.getdata())
